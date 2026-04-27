@@ -1,0 +1,234 @@
+/*
+ * beVital InsideOut – Design System
+ * Farbpalette: Pink #993A74 · TerraLight #C17B52 · TerraDark #8C492E · Sage #7A9E7E · Cream #FAF6F1 · CreamDark #F0E8DE
+ * Typografie: Cormorant Garamond (Headlines) · DM Sans (Body)
+ * KEIN Schwarz, KEIN Nachtblau – alle dunklen Bereiche in TerraDark oder Sage
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* beVital Farben */
+  --bv-pink:         #993A74;
+  --bv-pink-dark:    #7a2d5c;
+  --bv-terra-light:  #C17B52;
+  --bv-terra-dark:   #8C492E;
+  --bv-sage:         #7A9E7E;
+  --bv-sage-dark:    #5a7d5e;
+  --bv-cream:        #FAF6F1;
+  --bv-cream-dark:   #F0E8DE;
+  --bv-cream-deep:   #e2d5c8;
+  --bv-text:         #3d2b22;
+  --bv-text-muted:   #8a6e62;
+
+  /* Typografie – elegant & klar */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Shadcn tokens → beVital Farben */
+  --radius: 0.5rem;
+  --background:            oklch(0.98 0.008 60);
+  --foreground:            oklch(0.22 0.025 45);
+  --card:                  oklch(1 0 0);
+  --card-foreground:       oklch(0.22 0.025 45);
+  --popover:               oklch(1 0 0);
+  --popover-foreground:    oklch(0.22 0.025 45);
+  --primary:               oklch(0.42 0.12 340);
+  --primary-foreground:    oklch(0.98 0.005 60);
+  --secondary:             oklch(0.93 0.015 60);
+  --secondary-foreground:  oklch(0.35 0.04 45);
+  --muted:                 oklch(0.93 0.01 60);
+  --muted-foreground:      oklch(0.52 0.03 50);
+  --accent:                oklch(0.88 0.03 55);
+  --accent-foreground:     oklch(0.22 0.025 45);
+  --destructive:           oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border:                oklch(0.88 0.02 55);
+  --input:                 oklch(0.88 0.02 55);
+  --ring:                  oklch(0.42 0.12 340);
+  --sidebar:               oklch(0.96 0.01 60);
+  --sidebar-foreground:    oklch(0.22 0.025 45);
+  --sidebar-primary:       oklch(0.42 0.12 340);
+  --sidebar-primary-foreground: oklch(0.98 0.005 60);
+  --sidebar-accent:        oklch(0.93 0.015 60);
+  --sidebar-accent-foreground: oklch(0.22 0.025 45);
+  --sidebar-border:        oklch(0.88 0.02 55);
+  --sidebar-ring:          oklch(0.42 0.12 340);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-weight: 300;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] { @apply cursor-pointer; }
+}
+
+@layer components {
+  /* Container */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .flex { min-height: 0; min-width: 0; }
+  @media (min-width: 640px) {
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; }
+  }
+
+  /* ── Pill-Buttons ─────────────────────────────────────────────── */
+  .btn-pill {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+  }
+  .btn-pill:hover { transform: translateY(-2px); }
+
+  .btn-pink {
+    background: var(--bv-pink);
+    color: white;
+  }
+  .btn-pink:hover {
+    background: var(--bv-pink-dark);
+    box-shadow: 0 8px 24px rgba(153,58,116,0.35);
+  }
+
+  .btn-terra {
+    background: var(--bv-terra-dark);
+    color: white;
+  }
+  .btn-terra:hover {
+    background: #6e3520;
+    box-shadow: 0 8px 24px rgba(140,73,46,0.35);
+  }
+
+  .btn-sage {
+    background: var(--bv-sage);
+    color: white;
+  }
+  .btn-sage:hover {
+    background: var(--bv-sage-dark);
+    box-shadow: 0 8px 24px rgba(122,158,126,0.35);
+  }
+
+  .btn-outline-terra {
+    background: transparent;
+    border: 1.5px solid var(--bv-terra-dark);
+    color: var(--bv-terra-dark);
+  }
+  .btn-outline-terra:hover {
+    background: var(--bv-terra-dark);
+    color: white;
+  }
+
+  .btn-outline-cream {
+    background: transparent;
+    border: 1.5px solid rgba(250,246,241,0.5);
+    color: white;
+  }
+  .btn-outline-cream:hover {
+    background: rgba(250,246,241,0.12);
+  }
+
+  /* ── Scroll-Fortschrittsbalken ────────────────────────────────── */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .animate-spin-slow { animation: spin-slow 18s linear infinite; }
+
+  /* ── ActiveCampaign Formular-Überschreibungen ─────────────────── */
+  .ac-form-wrapper { margin: 0; }
+  ._form_33 { margin: 0 !important; padding: 0 !important; }
+  ._form_33 ._form-title,
+  ._form_33 ._form-description { display: none !important; }
+  ._form_33 ._field-wrapper input,
+  ._form_33 input[type="text"],
+  ._form_33 input[type="email"] {
+    font-family: var(--font-body) !important;
+    font-size: 15px !important;
+    padding: 14px 18px !important;
+    border: 1px solid rgba(42,34,32,0.15) !important;
+    border-radius: 6px !important;
+    background: var(--bv-cream) !important;
+    color: var(--bv-text) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 12px !important;
+  }
+  ._form_33 ._submit,
+  ._form_33 input[type="submit"] {
+    font-family: var(--font-body) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    background: var(--bv-pink) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 14px 32px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
+  ._form_33 ._submit:hover,
+  ._form_33 input[type="submit"]:hover {
+    background: var(--bv-pink-dark) !important;
+  }
+}

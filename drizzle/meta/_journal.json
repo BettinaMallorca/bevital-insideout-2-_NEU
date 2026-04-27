@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1776515368467,
+      "tag": "0000_spotty_clint_barton",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1776515452697,
+      "tag": "0001_faithful_black_bolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1776515641744,
+      "tag": "0002_sour_energizer",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `memberships` ADD `courseId` int NOT NULL;
