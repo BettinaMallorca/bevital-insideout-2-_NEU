@@ -245,7 +245,7 @@ export default function Home() {
           className="hero-image-right"
         >
           <img
-            src="/manus-storage/bettina-yoga-dancer_60cb41a2.jpg"
+            src="/images/bettina-yoga-dancer.jpg"
             alt="Bettina Kahmann in Yoga-Pose – Yogalehrerin aus der Wedemark"
             style={{
               width: "100%",
@@ -677,7 +677,7 @@ export default function Home() {
           <div style={{ position: "relative" }}>
             {/* Portrait-Foto */}
             <img
-              src="/manus-storage/bettina-portrait_9faa3b45.jpg"
+              src="/images/bettina-portrait.jpg"
               alt="Bettina Kahmann – Yogalehrerin und Präventionsexpertin aus der Wedemark"
               style={{
                 width: "100%",
@@ -2089,7 +2089,7 @@ export default function Home() {
             }}
           >
             <img
-              src="/manus-storage/retreat_mallorca_9fd4c4ff.jpg"
+              src="/images/retreat-mallorca.jpg"
               alt="Bettina Yoga Retreat Mallorca"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", minHeight: 480 }}
             />
